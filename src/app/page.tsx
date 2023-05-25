@@ -33,16 +33,16 @@ export default function Home() {
                   <Heading as='h1' size='lg'>mimoz</Heading>
                   <Text>Composer / Developer</Text>
                   <Box mt={2}>
-                    <a href="https://soundcloud.com/mimozzz" target="_blank" rel="noopener noreferrer">
+                    <a href="https://soundcloud.com/mimozzz" aria-label="SoundCloud" target="_blank" rel="noopener noreferrer">
                       <Icon boxSize={6} ml={2} as={FaSoundcloud} />
                     </a>
-                    <a href="https://twitter.com/m1m0zzz" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/m1m0zzz" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                       <Icon boxSize={6} ml={2} as={FiTwitter} />
                     </a>
-                    <a href="https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                       <Icon boxSize={6} ml={2} as={FaYoutube} />
                     </a>
-                    <a href="https://www.instagram.com/m1m0zzz/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/m1m0zzz/" aria-label='Instagram' target="_blank" rel="noopener noreferrer">
                       <Icon boxSize={6} ml={2} as={FiInstagram} />
                     </a>
                   </Box>
