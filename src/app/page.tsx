@@ -82,7 +82,7 @@ export default function Home() {
               justifyContent='center'
               alignItems='center'
             >
-              <Text>&copy; 2023 mimoz.  All rights reserved</Text>
+              <Text>&copy; 2023 mimoz</Text>
             </Flex>
         </footer>
       </SimpleSidebar>
