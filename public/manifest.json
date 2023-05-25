@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "mimozのホームページ",
+    "short_name": "mimoz",
     "icons": [
        {
           "src": "/android-chrome-192x192.png",
@@ -8,7 +8,7 @@
           "type": "image/png"
        }
     ],
-    "theme_color": "#FFFFFF",
+    "theme_color": "#89b9bd",
     "background_color": "#FFFFFF",
-    "display": "standalone"
+    "display": "browser"
  }
