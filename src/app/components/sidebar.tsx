@@ -2,8 +2,6 @@
 
 // ref: https://chakra-templates.dev/navigation/sidebar
 
-import NextImage from 'next/image'
-
 import React, { ReactNode } from 'react';
 import {
   IconButton,
@@ -19,6 +17,7 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
+  Image
 } from '@chakra-ui/react';
 import {
   FiMeh,
@@ -87,14 +86,10 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        {/* <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          mimoz
-        </Text> */}
-        <NextImage
-          src='/logo.png'
+        <Image
+          src='logo.png'
           alt='mimoz logo'
-          width={140}
-          height={80}
+          height='full'
         />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
@@ -165,17 +160,11 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         icon={<FiMenu />}
       />
 
-      {/* <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
-      </Text> */}
-      <NextImage
-        src='/mimoz_logo4.png'
+      <Image
+        src='logo.png'
         alt='mimoz logo'
-        width={140}
-        height={80}
-        style={{
-          marginLeft: '2rem'
-        }}
+        height='full'
+        ml={4}
       />
     </Flex>
   );

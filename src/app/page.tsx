@@ -1,6 +1,5 @@
 "use client";
 
-import NextImage from 'next/image'
 import {
   ChakraProvider,
   Heading,
@@ -9,7 +8,8 @@ import {
   Text,
   HStack,
   Icon,
-  Flex
+  Flex,
+  Image
 } from '@chakra-ui/react'
 import { FiInstagram, FiTwitter } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
@@ -22,14 +22,12 @@ export default function Home() {
         <main>
           <Container id='about' p="4">
             <HStack spacing='24px'>
-              <NextImage
-                src='/mimoz.jpg'
+              <Image
+                src='mimoz.jpg'
                 alt='mimoz icon'
                 width={160}
                 height={160}
-                style={{
-                  borderRadius: '50%'
-                }}
+                rounded='full'
               />
                 <Box>
                   <Heading as='h1' size='lg'>mimoz</Heading>
@@ -52,8 +50,8 @@ export default function Home() {
             </HStack>
 
             <Heading id='discography' mt='8' mb='4' as='h2' size='lg'>Discography</Heading>
-            <NextImage
-              src='/hyper-chroma.jpg'
+            <Image
+              src='hyper-chroma.jpg'
               alt='hyper chroma'
               width={160}
               height={160}
