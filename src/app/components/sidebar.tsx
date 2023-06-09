@@ -37,8 +37,8 @@ interface LinkItemProps {
 const LinkItems: Array<LinkItemProps> = [
   { name: 'About', icon: FiMeh },
   { name: 'Discography', icon: FiImage },
-  { name: 'Ableton', icon: FiSliders },
-  { name: 'Blog', icon: FiCoffee },
+  { name: 'Distribution', icon: FiSliders },
+  { name: 'Other', icon: FiCoffee },
   { name: 'Contact', icon: FiMail },
 ];
 

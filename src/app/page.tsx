@@ -9,18 +9,37 @@ import {
   HStack,
   Icon,
   Flex,
-  Image
+  Image,
+  Link,
+  UnorderedList,
+  ListItem,
 } from '@chakra-ui/react'
-import { FiInstagram, FiTwitter } from 'react-icons/fi';
+import { FiExternalLink, FiInstagram, FiTwitter } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import SimpleSidebar from './components/sidebar';
+import { IconType } from 'react-icons';
+import Distribution from './components/distribution';
+import Discography from './components/discography';
+
+interface SNSLinkProps {
+  label: string;
+  link: string;
+  icon: IconType;
+}
+
+const SNSLinks: SNSLinkProps[] = [
+  { label: 'SoundCloud', link: 'https://soundcloud.com/mimozzz', icon: FaSoundcloud },
+  { label: 'Twitter', link: 'https://twitter.com/m1m0zzz', icon: FiTwitter },
+  { label: 'YouTube', link: 'https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg', icon: FaYoutube },
+  { label: 'Instagram', link: 'https://www.instagram.com/m1m0zzz/', icon: FiInstagram }
+];
 
 export default function Home() {
   return (
      <ChakraProvider>
       <SimpleSidebar>
         <main>
-          <Container id='about' p="4">
+          <Container id='about' p="4" maxW='2xl'>
             <HStack spacing='24px'>
               <Image
                 src='mimoz.jpg'
@@ -32,44 +51,42 @@ export default function Home() {
                 <Box>
                   <Heading as='h1' size='lg'>mimoz</Heading>
                   <Text>Composer / Developer</Text>
+                  <Text>since 2003</Text>
                   <Box mt={2}>
-                    <a href="https://soundcloud.com/mimozzz" aria-label="SoundCloud" target="_blank" rel="noopener noreferrer">
-                      <Icon boxSize={6} ml={2} as={FaSoundcloud} />
-                    </a>
-                    <a href="https://twitter.com/m1m0zzz" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                      <Icon boxSize={6} ml={2} as={FiTwitter} />
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                      <Icon boxSize={6} ml={2} as={FaYoutube} />
-                    </a>
-                    <a href="https://www.instagram.com/m1m0zzz/" aria-label='Instagram' target="_blank" rel="noopener noreferrer">
-                      <Icon boxSize={6} ml={2} as={FiInstagram} />
-                    </a>
+                    {SNSLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.label}
+                        >
+                        <Icon boxSize={6} ml={2} as={link.icon} />
+                      </a>
+                    ))}
                   </Box>
                 </Box>
             </HStack>
 
             <Heading id='discography' mt='8' mb='4' as='h2' size='lg'>Discography</Heading>
-            <Image
-              src='hyper-chroma.jpg'
-              alt='hyper chroma'
-              width={160}
-              height={160}
-            />
-            <Text>Surface</Text>
-            <Text>Peri Sound & mimoz</Text>
+            <Discography />
 
-            <Heading id='ableton' mt='8' mb='4' as='h2' size='lg'>Ableton</Heading>
-            <Text>🛠️ 準備ちう</Text>
-            <Text>自作 Ableton デバイスを配布予定！</Text>
+            <Heading id='distribution' mt='8' mb='4' as='h2' size='lg'>Distribution</Heading>
+            <Distribution />
 
-            <Heading id='blog' mt='8' mb='4' as='h2' size='lg'>Blog</Heading>
-            <Text>🛠️ 準備ちう2</Text>
+            <Heading id='other' mt='8' mb='4' as='h2' size='lg'>Other</Heading>
+            <UnorderedList>
+              <ListItem>
+                <Link color='teal.500' href='https://m1m0zzz.github.io/max-docs-ja/' >
+                  Max 8 ドキュメント 日本語訳
+                </Link>
+              </ListItem>
+            </UnorderedList>
 
             <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
             <Text>mail: contact.m1m0zzz@gmail.com</Text>
             <Text>or Twitter DM{' ('}
-              <a href="https://twitter.com/m1m0zzz" target="_blank" rel="noopener noreferrer">@m1m0zzz</a>
+              <Link color='teal.500' href="https://twitter.com/m1m0zzz" target="_blank" rel="noopener noreferrer">@m1m0zzz</Link>
               {')'}
             </Text>
           </Container>
