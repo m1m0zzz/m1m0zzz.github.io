@@ -23,7 +23,6 @@ import {
   FiMeh,
   FiImage,
   FiSliders,
-  FiCoffee,
   FiMail,
   FiMenu,
 } from 'react-icons/fi';
@@ -38,7 +37,6 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'About', icon: FiMeh },
   { name: 'Discography', icon: FiImage },
   { name: 'Distribution', icon: FiSliders },
-  { name: 'Other', icon: FiCoffee },
   { name: 'Contact', icon: FiMail },
 ];
 

@@ -74,15 +74,6 @@ export default function Home() {
             <Heading id='distribution' mt='8' mb='4' as='h2' size='lg'>Distribution</Heading>
             <Distribution />
 
-            <Heading id='other' mt='8' mb='4' as='h2' size='lg'>Other</Heading>
-            <UnorderedList>
-              <ListItem>
-                <Link color='teal.500' href='https://m1m0zzz.github.io/max-docs-ja/' >
-                  Max 8 ドキュメント 日本語訳
-                </Link>
-              </ListItem>
-            </UnorderedList>
-
             <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
             <Text>mail: contact.m1m0zzz@gmail.com</Text>
             <Text>or Twitter DM{' ('}
