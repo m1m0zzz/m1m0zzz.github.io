@@ -16,8 +16,12 @@ import {
 } from '@chakra-ui/react'
 import { FiExternalLink, FiInstagram, FiTwitter } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
-import SimpleSidebar from './components/sidebar';
+import { ColorModeScript } from '@chakra-ui/react'
 import { IconType } from 'react-icons';
+
+import theme from './theme';
+
+import SimpleSidebar from './components/sidebar';
 import Distribution from './components/distribution';
 import Discography from './components/discography';
 
@@ -37,6 +41,7 @@ const SNSLinks: SNSLinkProps[] = [
 export default function Home() {
   return (
      <ChakraProvider>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <SimpleSidebar>
         <main>
           <Container id='about' p="4" maxW='2xl'>
@@ -51,7 +56,6 @@ export default function Home() {
                 <Box>
                   <Heading as='h1' size='lg'>mimoz</Heading>
                   <Text>Composer / Developer</Text>
-                  <Text>since 2003</Text>
                   <Box mt={2}>
                     {SNSLinks.map((link) => (
                       <a

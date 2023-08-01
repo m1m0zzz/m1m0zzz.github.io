@@ -6,7 +6,7 @@ import {
   Stack,
   Heading,
   Box
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 interface Props {
   title: string;
@@ -24,17 +24,20 @@ export default function DiscographyItem({
   kind,
 }: Props) {
   return (
-    <Stack spacing='2' maxW='280px'>
+    <Stack spacing="2" maxW="280px">
       <a href={link} target="_blank" rel="noopener noreferrer">
         <Image
           src={imageSrc}
           alt={title}
-          width={160}
-          height={160}
+          width={"160px"}
+          height={"160px"}
+          margin={"8px"}
+          transition={"1s"}
+          _hover={{ transform: "scale(1.1)" }}
         />
       </a>
       <Box>
-        <Heading as='h3' size='md'>{title}</Heading>
+        <Heading as="h3" size="md">{title}</Heading>
         {author && <Text>{author}</Text>}
         {kind && <Text>{kind}</Text>}
       </Box>
