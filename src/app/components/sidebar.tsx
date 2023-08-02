@@ -119,7 +119,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         </NavItem>
       ))}
 
-      <Divider px={4} my={2} width="calc(100% - 3rem)" />
+      <Divider mx={4} my={2} width="calc(100% - 2rem)" />
       <Flex mx={4} alignItems="center">
         <IconButton
           p="4"
