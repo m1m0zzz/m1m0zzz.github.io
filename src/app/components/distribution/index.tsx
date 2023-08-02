@@ -18,17 +18,7 @@ export default function Distribution() {
         <Text>幅広いジャンルの音を集めました</Text>
         <Text>Audio Effect Rack × 16</Text>
         <Text>Instrument Rack × 17</Text>
-        {/* <Text>※ 動作には、Ableton Live Suite が必要です</Text> */}
       </DistributionItem>
-
-      {/* <DistributionItem
-        title='mimoz Sample Pack'
-        imageSrc='zack-walker-iu0vI_V9218-unsplash.jpg'
-        downloadLink='#'
-      >
-        <Text>text text text</Text>
-        <Text>long long long long long long long long long long long long long long long text</Text>
-      </DistributionItem> */}
     </Wrap>
   )
 }
