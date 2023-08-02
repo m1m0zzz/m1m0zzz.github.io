@@ -39,12 +39,12 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://m1m0zzz.github.io/" />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content="preview.png" />
+        <meta property="og:image" content="https://m1m0zzz.github.io/mimoz.jpg" />
 
         <meta name="twitter:creator" content="@m1m0zzz" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image:src" content="preview.png" />
+        <meta name="twitter:image:src" content="https://m1m0zzz.github.io/mimoz.jpg" />
         <meta property="twitter:card" content="summary_large_image" />
       </head>
       <body className={inter.className}>
