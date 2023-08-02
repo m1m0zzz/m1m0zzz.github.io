@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ChakraProvider,
   Heading,
   Container,
   Box,
@@ -11,15 +10,11 @@ import {
   Flex,
   Image,
   Link,
-  UnorderedList,
-  ListItem,
+  useColorModeValue
 } from '@chakra-ui/react'
-import { FiExternalLink, FiInstagram, FiTwitter } from 'react-icons/fi';
+import { FiInstagram, FiTwitter } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
-import { ColorModeScript } from '@chakra-ui/react'
 import { IconType } from 'react-icons';
-
-import theme from './theme';
 
 import SimpleSidebar from './components/sidebar';
 import Distribution from './components/distribution';
@@ -40,64 +35,61 @@ const SNSLinks: SNSLinkProps[] = [
 
 export default function Home() {
   return (
-     <ChakraProvider>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <SimpleSidebar>
-        <main>
-          <Container id='about' p="4" maxW='2xl'>
-            <HStack spacing='24px'>
-              <Image
-                src='mimoz.jpg'
-                alt='mimoz icon'
-                width={160}
-                height={160}
-                rounded='full'
-              />
-                <Box>
-                  <Heading as='h1' size='lg'>mimoz</Heading>
-                  <Text>Composer / Developer</Text>
-                  <Box mt={2}>
-                    {SNSLinks.map((link) => (
-                      <a
-                        key={link.label}
-                        href={link.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={link.label}
-                        >
-                        <Icon boxSize={6} ml={2} as={link.icon} />
-                      </a>
-                    ))}
-                  </Box>
+    <SimpleSidebar>
+      <main>
+        <Container id='about' p="4" maxW='2xl'>
+          <HStack spacing='24px'>
+            <Image
+              src='mimoz.jpg'
+              alt='mimoz icon'
+              width={160}
+              height={160}
+              rounded='full'
+            />
+              <Box>
+                <Heading as='h1' size='lg'>mimoz</Heading>
+                <Text>Composer / Developer</Text>
+                <Box mt={2}>
+                  {SNSLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.label}
+                      >
+                      <Icon boxSize={6} ml={2} as={link.icon} />
+                    </a>
+                  ))}
                 </Box>
-            </HStack>
+              </Box>
+          </HStack>
 
-            <Heading id='discography' mt='8' mb='4' as='h2' size='lg'>Discography</Heading>
-            <Discography />
+          <Heading id='discography' mt='8' mb='4' as='h2' size='lg'>Discography</Heading>
+          <Discography />
 
-            <Heading id='distribution' mt='8' mb='4' as='h2' size='lg'>Distribution</Heading>
-            <Distribution />
+          <Heading id='distribution' mt='8' mb='4' as='h2' size='lg'>Distribution</Heading>
+          <Distribution />
 
-            <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
-            <Text>mail: contact.m1m0zzz@gmail.com</Text>
-            <Text>or Twitter DM{' ('}
-              <Link color='teal.500' href="https://twitter.com/m1m0zzz" target="_blank" rel="noopener noreferrer">@m1m0zzz</Link>
-              {')'}
-            </Text>
-          </Container>
-        </main>
-        <footer>
-            <Flex
-              bg='#89b9bd'
-              color='white'
-              h={16}
-              justifyContent='center'
-              alignItems='center'
-            >
-              <Text>&copy; 2023 mimoz</Text>
-            </Flex>
-        </footer>
-      </SimpleSidebar>
-    </ChakraProvider>
+          <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
+          <Text>mail: contact.m1m0zzz@gmail.com</Text>
+          <Text>or Twitter DM{' ('}
+            <Link color={useColorModeValue("brand.800", "brand.400")} href="https://twitter.com/m1m0zzz" target="_blank" rel="noopener noreferrer">@m1m0zzz</Link>
+            {')'}
+          </Text>
+        </Container>
+      </main>
+      <footer>
+          <Flex
+            bg={useColorModeValue("brand.500", "brand.700")}
+            color='white'
+            h={16}
+            justifyContent='center'
+            alignItems='center'
+          >
+            <Text>&copy; 2023 mimoz</Text>
+          </Flex>
+      </footer>
+    </SimpleSidebar>
   )
 }

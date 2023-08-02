@@ -6,7 +6,8 @@ import {
   Image,
   Link,
   Stack,
-  Icon
+  Icon,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { ReactNode } from 'react';
 import { FiExternalLink } from 'react-icons/fi';
@@ -45,7 +46,7 @@ export default function DistributionItem({
         href={downloadLink}
         isExternal={isExternal}
         aria-label={'Download' + title}
-        color='teal.500'
+        color={useColorModeValue("brand.800", "brand.400")}
       >
         {downloadText || 'Download'} {isExternal && <Icon mx='2px' as={FiExternalLink} />}
       </Link>

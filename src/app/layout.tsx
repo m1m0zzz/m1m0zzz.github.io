@@ -1,7 +1,12 @@
+"use client"
+
 import './globals.css'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import theme from './theme';
 
 export default function RootLayout({
   children,
@@ -42,7 +47,12 @@ export default function RootLayout({
         <meta name="twitter:image:src" content="preview.png" />
         <meta property="twitter:card" content="summary_large_image" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <ChakraProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        {children}
+      </ChakraProvider>
+      </body>
     </html>
   )
 }

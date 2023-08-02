@@ -13,11 +13,12 @@ import {
   Link,
   Drawer,
   DrawerContent,
-  Text,
   useDisclosure,
   BoxProps,
   FlexProps,
-  Image
+  Image,
+  useColorMode,
+  Divider
 } from '@chakra-ui/react';
 import {
   FiMeh,
@@ -25,9 +26,15 @@ import {
   FiSliders,
   FiMail,
   FiMenu,
+  FiSun,
+  FiMoon,
+  FiTwitter,
+  FiInstagram
 } from 'react-icons/fi';
+
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 
 interface LinkItemProps {
   name: string;
@@ -38,6 +45,19 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Discography', icon: FiImage },
   { name: 'Distribution', icon: FiSliders },
   { name: 'Contact', icon: FiMail },
+];
+
+interface SNSLinkProps {
+  label: string;
+  link: string;
+  icon: IconType;
+}
+
+const SNSLinks: SNSLinkProps[] = [
+  { label: 'SoundCloud', link: 'https://soundcloud.com/mimozzz', icon: FaSoundcloud },
+  { label: 'Twitter', link: 'https://twitter.com/m1m0zzz', icon: FiTwitter },
+  { label: 'YouTube', link: 'https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg', icon: FaYoutube },
+  { label: 'Instagram', link: 'https://www.instagram.com/m1m0zzz/', icon: FiInstagram }
 ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
@@ -74,6 +94,8 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Box
       bg={useColorModeValue('white', 'gray.900')}
@@ -92,10 +114,35 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} anchor={link.name} icon={link.icon}>
+        <NavItem key={link.name} anchor={link.name} icon={link.icon} onClick={onClose}>
           {link.name}
         </NavItem>
       ))}
+
+      <Divider px={4} my={2} width="calc(100% - 3rem)" />
+      <Flex mx={4} alignItems="center">
+        <IconButton
+          p="4"
+          variant="outline"
+          onClick={toggleColorMode}
+          aria-label="change color mode"
+          icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
+        />
+        <Flex w="full" justifyContent="space-around">
+          {SNSLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              h={4}
+              >
+              <Icon boxSize={4} as={link.icon} />
+            </Link>
+          ))}
+        </Flex>
+      </Flex>
     </Box>
   );
 };
@@ -103,11 +150,17 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   anchor: string;
   icon: IconType;
+  onClick: () => void;
   children: ReactText;
 }
-const NavItem = ({ anchor, icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ anchor, icon, children, onClick, ...rest }: NavItemProps) => {
   return (
-    <Link href={ '#' + anchor.toLowerCase() } style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link
+      href={ '#' + anchor.toLowerCase() }
+      style={{ textDecoration: 'none' }}
+      _focus={{ boxShadow: 'none' }}
+      onClick={onClick}
+    >
       <Flex
         align="center"
         p="4"
@@ -116,7 +169,7 @@ const NavItem = ({ anchor, icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: '#89b9bd',
+          bg: useColorModeValue("brand.500", "brand.700"),
           color: 'white',
         }}
         {...rest}>
