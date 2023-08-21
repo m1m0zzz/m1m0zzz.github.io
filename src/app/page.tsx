@@ -10,9 +10,12 @@ import {
   Flex,
   Image,
   Link,
-  useColorModeValue
+  useColorModeValue,
+  List,
+  ListIcon,
+  ListItem
 } from '@chakra-ui/react'
-import { FiInstagram, FiTwitter } from 'react-icons/fi';
+import { FiHeart, FiInstagram, FiTwitter, FiZap } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
@@ -70,6 +73,22 @@ export default function Home() {
 
           <Heading id='distribution' mt='8' mb='4' as='h2' size='lg'>Distribution</Heading>
           <Distribution />
+
+          <Heading id='project' mt='8' mb='4' as='h2' size='lg'>Project</Heading>
+          <List spacing={3}>
+            <ListItem>
+              <ListIcon as={FiZap} />
+              <Link color={useColorModeValue("brand.800", "brand.400")} href="https://m1m0zzz.github.io/.spectrum/" target="_blank" rel="noopener noreferrer">
+                .Spectrum - ドット絵風オーディオアナライザー
+              </Link>
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FiHeart} />
+              <Link color={useColorModeValue("brand.800", "brand.400")} href="https://m1m0zzz.github.io/sacabambaspis/" target="_blank" rel="noopener noreferrer">
+                サカバンバスピス スクリーンセーバー
+              </Link>
+            </ListItem>
+          </List>
 
           <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
           <Text>mail: contact.m1m0zzz@gmail.com</Text>

@@ -29,7 +29,8 @@ import {
   FiSun,
   FiMoon,
   FiTwitter,
-  FiInstagram
+  FiInstagram,
+  FiPackage
 } from 'react-icons/fi';
 
 import { IconType } from 'react-icons';
@@ -44,6 +45,7 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'About', icon: FiMeh },
   { name: 'Discography', icon: FiImage },
   { name: 'Distribution', icon: FiSliders },
+  { name: 'Project', icon: FiPackage },
   { name: 'Contact', icon: FiMail },
 ];
 
