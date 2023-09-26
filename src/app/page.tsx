@@ -15,7 +15,7 @@ import {
   ListIcon,
   ListItem
 } from '@chakra-ui/react'
-import { FiHeart, FiInstagram, FiTwitter, FiZap } from 'react-icons/fi';
+import { FiHeart, FiImage, FiInstagram, FiTwitter, FiZap } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
@@ -34,6 +34,12 @@ const SNSLinks: SNSLinkProps[] = [
   { label: 'Twitter', link: 'https://twitter.com/m1m0zzz', icon: FiTwitter },
   { label: 'YouTube', link: 'https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg', icon: FaYoutube },
   { label: 'Instagram', link: 'https://www.instagram.com/m1m0zzz/', icon: FiInstagram }
+];
+
+const projectLinks: {text: string, link: string, icon: IconType}[] = [
+  { text: ".Spectrum - ドット絵風オーディオアナライザー", link: "https://m1m0zzz.github.io/.spectrum/", icon: FiZap },
+  { text: "MIDI Art Lv.100", link: "https://m1m0zzz.github.io/midi-art-lv100/", icon: FiImage },
+  { text: "サカバンバスピス スクリーンセーバー", link: "https://m1m0zzz.github.io/sacabambaspis/", icon: FiHeart },
 ];
 
 export default function Home() {
@@ -76,18 +82,17 @@ export default function Home() {
 
           <Heading id='project' mt='8' mb='4' as='h2' size='lg'>Project</Heading>
           <List spacing={3}>
-            <ListItem>
-              <ListIcon as={FiZap} />
-              <Link color={useColorModeValue("brand.800", "brand.400")} href="https://m1m0zzz.github.io/.spectrum/" target="_blank" rel="noopener noreferrer">
-                .Spectrum - ドット絵風オーディオアナライザー
-              </Link>
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FiHeart} />
-              <Link color={useColorModeValue("brand.800", "brand.400")} href="https://m1m0zzz.github.io/sacabambaspis/" target="_blank" rel="noopener noreferrer">
-                サカバンバスピス スクリーンセーバー
-              </Link>
-            </ListItem>
+            {projectLinks.map((link) => { return (
+              <ListItem key={link.text}>
+                <ListIcon as={link.icon} />
+                <Link
+                  color="brand.800"
+                  _dark={{color: "brand.400"}}
+                  href={link.link} target="_blank" rel="noopener noreferrer">
+                  {link.text}
+                </Link>
+              </ListItem>
+            )})}
           </List>
 
           <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
