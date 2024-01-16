@@ -46,6 +46,9 @@ export default function RootLayout({
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image:src" content="https://m1m0zzz.github.io/mimoz.jpg" />
         <meta property="twitter:card" content="summary_large_image" />
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052898588820372"
+     crossOrigin="anonymous"></script>
       </head>
       <body className={inter.className}>
       <ChakraProvider theme={theme}>
