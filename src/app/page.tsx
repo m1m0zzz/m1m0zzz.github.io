@@ -13,9 +13,10 @@ import {
   useColorModeValue,
   List,
   ListIcon,
-  ListItem
+  ListItem,
+  Badge
 } from '@chakra-ui/react'
-import { FiHeart, FiImage, FiInstagram, FiTwitter, FiZap } from 'react-icons/fi';
+import { FiImage, FiInstagram, FiPenTool, FiSliders, FiSmile, FiTwitter, FiZap } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
@@ -36,10 +37,49 @@ const SNSLinks: SNSLinkProps[] = [
   { label: 'Instagram', link: 'https://www.instagram.com/m1m0zzz/', icon: FiInstagram }
 ];
 
-const projectLinks: {text: string, link: string, icon: IconType}[] = [
-  { text: ".Spectrum - ドット絵風オーディオアナライザー", link: "https://m1m0zzz.github.io/.spectrum/", icon: FiZap },
-  { text: "MIDI Art Lv.100", link: "https://m1m0zzz.github.io/midi-art-lv100/", icon: FiImage },
-  { text: "サカバンバスピス スクリーンセーバー", link: "https://m1m0zzz.github.io/sacabambaspis/", icon: FiHeart },
+const ProjectTypes = ["VST", "Web"] as const;
+type ProjectType = typeof ProjectTypes[number];
+const ProjectTypeColorMap: {[key in ProjectType]: string} = {
+  "VST": "blue",
+  "Web": "purple"
+}
+
+const projectLinks: {
+  text: string,
+  link: string,
+  icon: IconType,
+  type: ProjectType,
+}[] = [
+  {
+    text: "Utility clone",
+    link: "https://github.com/m1m0zzz/utility-clone",
+    icon: FiSliders,
+    type: "VST",
+  },
+  {
+    text: "JUCE日本語版チュートリアル",
+    link: "https://m1m0zzz.github.io/juce-tutorial-ja/",
+    icon: FiPenTool,
+    type: "Web",
+  },
+  {
+    text: ".Spectrum - ドット絵風オーディオアナライザー",
+    link: "https://m1m0zzz.github.io/.spectrum/",
+    icon: FiZap,
+    type: "Web",
+  },
+  {
+    text: "MIDI Art Lv.100",
+    link: "https://m1m0zzz.github.io/midi-art-lv100/",
+    icon: FiImage,
+    type: "Web",
+  },
+  {
+    text: "サカバンバスピス スクリーンセーバー",
+    link: "https://m1m0zzz.github.io/sacabambaspis/",
+    icon: FiSmile,
+    type: "Web",
+  },
 ];
 
 export default function Home() {
@@ -55,23 +95,23 @@ export default function Home() {
               height={160}
               rounded='full'
             />
-              <Box>
-                <Heading as='h1' size='lg'>mimoz</Heading>
-                <Text>Composer / Developer</Text>
-                <Box mt={2}>
-                  {SNSLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={link.label}
-                      >
-                      <Icon boxSize={6} ml={2} as={link.icon} />
-                    </a>
-                  ))}
-                </Box>
+            <Box>
+              <Heading as='h1' size='lg'>mimoz</Heading>
+              <Text>Composer / Developer</Text>
+              <Box mt={2}>
+                {SNSLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                  >
+                    <Icon boxSize={6} ml={2} as={link.icon} />
+                  </a>
+                ))}
               </Box>
+            </Box>
           </HStack>
 
           <Heading id='discography' mt='8' mb='4' as='h2' size='lg'>Discography</Heading>
@@ -82,17 +122,26 @@ export default function Home() {
 
           <Heading id='project' mt='8' mb='4' as='h2' size='lg'>Project</Heading>
           <List spacing={3}>
-            {projectLinks.map((link) => { return (
-              <ListItem key={link.text}>
-                <ListIcon as={link.icon} />
-                <Link
-                  color="brand.800"
-                  _dark={{color: "brand.400"}}
-                  href={link.link} target="_blank" rel="noopener noreferrer">
-                  {link.text}
-                </Link>
-              </ListItem>
-            )})}
+            {projectLinks.map((link) => {
+              return (
+                <ListItem key={link.text}>
+                  <ListIcon as={link.icon} />
+                  <Link
+                    color="brand.800"
+                    _dark={{ color: "brand.400" }}
+                    href={link.link} target="_blank" rel="noopener noreferrer">
+                    {link.text}
+                  </Link>
+                  <Badge
+                    ml="6px"
+                    variant="subtle"
+                    colorScheme={ProjectTypeColorMap[link.type]}
+                  >
+                    {link.type}
+                  </Badge>
+                </ListItem>
+              )
+            })}
           </List>
 
           <Heading id='contact' mt='8' mb='4' as='h2' size='lg'>Contact</Heading>
@@ -104,15 +153,15 @@ export default function Home() {
         </Container>
       </main>
       <footer>
-          <Flex
-            bg={useColorModeValue("brand.500", "brand.700")}
-            color='white'
-            h={16}
-            justifyContent='center'
-            alignItems='center'
-          >
-            <Text>&copy; 2023 mimoz</Text>
-          </Flex>
+        <Flex
+          bg={useColorModeValue("brand.500", "brand.700")}
+          color='white'
+          h={16}
+          justifyContent='center'
+          alignItems='center'
+        >
+          <Text>&copy; 2024 mimoz</Text>
+        </Flex>
       </footer>
     </SimpleSidebar>
   )
