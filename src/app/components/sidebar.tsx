@@ -28,10 +28,10 @@ import {
   FiMenu,
   FiSun,
   FiMoon,
-  FiTwitter,
   FiInstagram,
   FiPackage
 } from 'react-icons/fi';
+import { FaXTwitter } from "react-icons/fa6";
 
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
@@ -57,7 +57,7 @@ interface SNSLinkProps {
 
 const SNSLinks: SNSLinkProps[] = [
   { label: 'SoundCloud', link: 'https://soundcloud.com/mimozzz', icon: FaSoundcloud },
-  { label: 'Twitter', link: 'https://twitter.com/m1m0zzz', icon: FiTwitter },
+  { label: 'X(Twitter)', link: 'https://twitter.com/m1m0zzz', icon: FaXTwitter },
   { label: 'YouTube', link: 'https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg', icon: FaYoutube },
   { label: 'Instagram', link: 'https://www.instagram.com/m1m0zzz/', icon: FiInstagram }
 ];
@@ -138,6 +138,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
+              title={link.label}
               h={4}
               >
               <Icon boxSize={4} as={link.icon} />

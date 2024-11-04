@@ -16,8 +16,10 @@ import {
   ListItem,
   Badge
 } from '@chakra-ui/react'
-import { FiImage, FiInstagram, FiPenTool, FiSliders, FiSmile, FiTwitter, FiZap } from 'react-icons/fi';
+import { FiImage, FiInstagram, FiPenTool, FiSliders, FiSmile, FiTool, FiZap } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
+import { LuPlug2 } from "react-icons/lu";
 import { IconType } from 'react-icons';
 
 import SimpleSidebar from './components/sidebar';
@@ -32,29 +34,43 @@ interface SNSLinkProps {
 
 const SNSLinks: SNSLinkProps[] = [
   { label: 'SoundCloud', link: 'https://soundcloud.com/mimozzz', icon: FaSoundcloud },
-  { label: 'Twitter', link: 'https://twitter.com/m1m0zzz', icon: FiTwitter },
+  { label: 'X(Twitter)', link: 'https://twitter.com/m1m0zzz', icon: FaXTwitter },
   { label: 'YouTube', link: 'https://www.youtube.com/channel/UCgfte7zixiGJ6ZC6ttu3kfg', icon: FaYoutube },
   { label: 'Instagram', link: 'https://www.instagram.com/m1m0zzz/', icon: FiInstagram }
 ];
 
-const ProjectTypes = ["VST", "Web"] as const;
+const ProjectTypes = ["VST", "Web", "Preset", "UI"] as const;
 type ProjectType = typeof ProjectTypes[number];
 const ProjectTypeColorMap: {[key in ProjectType]: string} = {
-  "VST": "blue",
-  "Web": "purple"
+  "VST": "orange",
+  "Web": "cyan",
+  "Preset": "yellow",
+  "UI": "purple",
 }
 
 const projectLinks: {
   text: string,
   link: string,
   icon: IconType,
-  type: ProjectType,
+  type: ProjectType | ProjectType[],
 }[] = [
   {
     text: "Utility clone",
     link: "https://github.com/m1m0zzz/utility-clone",
-    icon: FiSliders,
+    icon: LuPlug2,
     type: "VST",
+  },
+  {
+    text: "tremolo-ui (wip)",
+    link: "https://github.com/m1m0zzz/tremolo-ui",
+    icon: FiSliders,
+    type: ["Web", "UI"],
+  },
+  {
+    text: "mmz_tools",
+    link: "https://m1m0zzz.github.io/mmz_tools/",
+    icon: FiTool,
+    type: ["Web", "Preset"],
   },
   {
     text: "JUCE日本語版チュートリアル",
@@ -106,6 +122,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.label}
+                    title={link.label}
                   >
                     <Icon boxSize={6} ml={2} as={link.icon} />
                   </a>
@@ -132,13 +149,20 @@ export default function Home() {
                     href={link.link} target="_blank" rel="noopener noreferrer">
                     {link.text}
                   </Link>
-                  <Badge
-                    ml="6px"
-                    variant="subtle"
-                    colorScheme={ProjectTypeColorMap[link.type]}
-                  >
-                    {link.type}
-                  </Badge>
+                  {
+                    (typeof link.type == "string" ?
+                      [link.type] : link.type
+                    ).map((type, index) =>
+                      <Badge
+                        key={index}
+                        ml="6px"
+                        variant="subtle"
+                        colorScheme={ProjectTypeColorMap[type]}
+                      >
+                        {type}
+                      </Badge>
+                    )
+                  }
                 </ListItem>
               )
             })}
