@@ -20,6 +20,7 @@ import { FiImage, FiInstagram, FiPenTool, FiSliders, FiSmile, FiTool, FiZap } fr
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { LuPlug2 } from "react-icons/lu";
+import { RiBardLine } from "react-icons/ri"
 import { IconType } from 'react-icons';
 
 import SimpleSidebar from './components/sidebar';
@@ -82,6 +83,12 @@ const projectLinks: {
     text: ".Spectrum - ドット絵風オーディオアナライザー",
     link: "https://m1m0zzz.github.io/.spectrum/",
     icon: FiZap,
+    type: "Web",
+  },
+  {
+    text: "mol ホームページ",
+    link: "https://o8omi.vercel.app/",
+    icon: RiBardLine,
     type: "Web",
   },
   {
