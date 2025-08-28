@@ -19,7 +19,7 @@ import {
 import { FiImage, FiInstagram, FiPenTool, FiSliders, FiSmile, FiTool, FiZap } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
-import { LuPlug2 } from "react-icons/lu";
+import { LuBlocks, LuPlug2 } from "react-icons/lu";
 import { RiBardLine } from "react-icons/ri"
 import { IconType } from 'react-icons';
 
@@ -55,6 +55,12 @@ const projectLinks: {
   icon: IconType,
   type: ProjectType | ProjectType[],
 }[] = [
+  {
+    text: "MIMOZ COMPONENTS",
+    link: "https://visualizers.vercel.app/",
+    icon: LuBlocks,
+    type: "Web",
+  },
   {
     text: "Utility clone",
     link: "https://github.com/m1m0zzz/utility-clone",
@@ -191,7 +197,7 @@ export default function Home() {
           justifyContent='center'
           alignItems='center'
         >
-          <Text>&copy; 2024 mimoz</Text>
+          <Text>&copy; {(new Date()).getFullYear()} mimoz</Text>
         </Flex>
       </footer>
     </SimpleSidebar>
