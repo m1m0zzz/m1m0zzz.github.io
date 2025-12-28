@@ -19,7 +19,7 @@ import {
 import { FiImage, FiInstagram, FiPenTool, FiSliders, FiSmile, FiTool, FiZap } from 'react-icons/fi';
 import { FaSoundcloud, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
-import { LuBlocks, LuPlug2 } from "react-icons/lu";
+import { LuBlocks, LuGamepad2, LuPlug2 } from "react-icons/lu";
 import { RiBardLine } from "react-icons/ri"
 import { IconType } from 'react-icons';
 
@@ -55,6 +55,12 @@ const projectLinks: {
   icon: IconType,
   type: ProjectType | ProjectType[],
 }[] = [
+  {
+    text: "うさぎ衰弱",
+    link: "https://usagicollective.com/usagi-suijaku/",
+    icon: LuGamepad2,
+    type: "Web",
+  },
   {
     text: "MIMOZ COMPONENTS",
     link: "https://visualizers.vercel.app/",
