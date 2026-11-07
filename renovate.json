@@ -1,4 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>m1m0zzz/renovate-config"]
+  "extends": ["github>m1m0zzz/renovate-config"],
+  "packageRules": [
+    {
+      "description": "framer-motion is only a peer dependency of @chakra-ui/react v2, so do not replace it with motion",
+      "matchPackageNames": ["framer-motion"],
+      "matchUpdateTypes": ["replacement"],
+      "enabled": false
+    }
+  ]
 }
